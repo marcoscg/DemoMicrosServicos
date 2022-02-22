@@ -1,0 +1,5 @@
+package com.mardeveloper.login.service;
+
+public class UserService {
+
+}

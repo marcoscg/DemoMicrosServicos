@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.repository;
+
+public class ClientRepository {
+
+}

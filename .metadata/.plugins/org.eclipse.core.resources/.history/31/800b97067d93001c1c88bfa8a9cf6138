@@ -1,0 +1,26 @@
+package com.mardeveloper.login.message;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.stereotype.Component;
+
+import com.mardeveloper.login.repository.LoginRepository;
+
+@Component
+public class LoginReceiveMessage {
+
+    private final LoginRepository loginRepository;
+
+    @Autowired
+    public LoginReceiveMessage(LoginRepository loginRepository) {
+        this.loginRepository = loginRepository;
+    }
+
+    @RabbitListener(queues = {"${cadastro.login.rabbitmq.queue}"})
+    public void receive(@Payload LoginDto loginDto) {
+        System.out.println(clientOrderDto);
+        clientRepository.save(Login.create(clientOrderDto));
+    }
+
+}

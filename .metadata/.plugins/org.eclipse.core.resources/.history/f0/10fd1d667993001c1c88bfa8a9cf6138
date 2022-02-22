@@ -1,0 +1,14 @@
+package com.mardeveloper.login.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.mardeveloper.login.entity.Client;
+
+@Repository
+public interface ClientRepository extends JpaRepository<Client, Long> {
+	
+	Client getByName(@Param("name") String email);
+
+}

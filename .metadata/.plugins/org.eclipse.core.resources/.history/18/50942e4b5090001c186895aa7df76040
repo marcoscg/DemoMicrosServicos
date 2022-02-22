@@ -1,0 +1,18 @@
+package com.mardeveloper.pedido.message;
+
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.stereotype.Component;
+
+import com.mardeveloper.pedido.dto.ClientOrderDto;
+
+@Component
+public class MenuReceiveMessage {
+
+    @RabbitListener(queues = {"${cadastro.menu.rabbitmq.queue}"})
+    public void receive(@Payload ClientOrderDto clientOrderDto) {
+        System.out.println(clientOrderDto);
+        //clientRepository.save(Client.create(clientOrderDto));
+    }
+
+}

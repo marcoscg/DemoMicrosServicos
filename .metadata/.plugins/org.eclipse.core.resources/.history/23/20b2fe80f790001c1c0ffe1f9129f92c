@@ -1,0 +1,10 @@
+server.port=8080
+
+zuul.routes.serverfirst.url = http://localhost:8081
+
+zuul.routes.serversecond.path=/test/**
+
+zuul.routes.serversecond.url = http://localhost:8082
+
+
+#localhost:8080/serverfirst/home  = http://localhost:8081/home

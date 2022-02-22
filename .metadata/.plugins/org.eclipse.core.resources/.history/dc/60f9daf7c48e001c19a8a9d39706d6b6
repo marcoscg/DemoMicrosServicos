@@ -1,0 +1,61 @@
+package com.mardeveloper.cadastro.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mardeveloper.cadastro.entity.Client;
+import com.mardeveloper.cadastro.entity.Menu;
+import com.mardeveloper.cadastro.repository.ClientRepository;
+import com.mardeveloper.cadastro.repository.MenuRepository;
+
+@Service
+public class MenuService {
+	
+	@Autowired
+	private MenuRepository menuRepository;
+	
+	public Menu insertClient(Menu menu) {
+		return menuRepository.save(menu);
+	}
+	
+	public Menu updateClient (Menu menu) {
+		
+		Optional<Menu> objMenu = menuRepository.findById(menu.getId());
+		
+		if (objMenu.isPresent()) {
+			return menuRepository.save(menu);			
+		} else {
+			return null; 			
+		}
+	}
+	
+	public boolean deleteCliente(Long id) {
+		
+		Optional<Menu> objMenu = menuRepository.findById(id);
+		
+		if (objMenu.isPresent()) {
+			menuRepository.delete(objMenu.get());
+			return true;
+		} else {
+			return false; 			
+		}
+	}
+	
+	public Optional<Menu> findById(Long id) {
+		
+		Optional<Menu> objMenu = menuRepository.findById(id);
+		
+		return objMenu;
+	}
+	
+	public List<Menu> findAll() {
+		
+		List<Menu> list = menuRepository.findAll();
+		
+		return list;
+	}	
+
+}

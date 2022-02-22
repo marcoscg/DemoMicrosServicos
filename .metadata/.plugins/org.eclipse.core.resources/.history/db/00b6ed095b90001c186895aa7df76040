@@ -1,0 +1,5 @@
+package com.mardeveloper.zuul.configuration;
+
+public class ZuulConfiguration {
+
+}

@@ -1,0 +1,62 @@
+package com.mardeveloper.login.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mardeveloper.login.entity.Login;
+import com.mardeveloper.login.repository.LoginRepository;
+
+@Service
+public class LoginService {
+	
+	@Autowired
+	private LoginRepository loginRepository;
+	
+
+	public Login insertClient(Login client) {
+		Login newClient = loginRepository.save(client);
+		
+		return newClient;
+	}
+	
+	public Login updateClient (Login client) {
+		
+		Optional<Login> objClient = loginRepository.findById(client.getId());
+		
+		if (objClient.isPresent()) {
+			return loginRepository.save(client);			
+		} else {
+			return null; 			
+		}
+	}
+	
+	public boolean deleteCliente(Long id) {
+		
+		Optional<Login> objClient = loginRepository.findById(id);
+		
+		if (objClient.isPresent()) {
+			loginRepository.delete(objClient.get());
+			return true;
+		} else {
+			return false; 			
+		}
+	}
+	
+	public Optional<Login> findById(Long id) {
+		
+		Optional<Login> objClient = loginRepository.findById(id);
+		
+		return objClient;
+	}
+	
+	public List<Login> findAll() {
+		
+		List<Login> list = loginRepository.findAll();
+		
+		return list;
+	}	
+
+}

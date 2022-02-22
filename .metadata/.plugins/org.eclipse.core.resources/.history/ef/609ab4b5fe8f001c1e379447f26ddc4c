@@ -1,0 +1,12 @@
+package com.mardeveloper.cadastro.configuration;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class RabbitConfiguration {
+	
+	@Value("${cadastro.rabbitmq.exchange}")
+	private String exchange;
+
+}

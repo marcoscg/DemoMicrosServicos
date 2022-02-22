@@ -1,0 +1,32 @@
+package com.mardeveloper.login.service;
+
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.mardeveloper.login.entity.Client;
+import com.mardeveloper.login.repository.ClientRepository;
+
+@Service
+public class JwtClientDetailsService implements UserDetailsService {
+
+	@Autowired
+    private ClientRepository clientRepository;
+	
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Client client = clientRepository.getByEmail(email);
+		
+		if (client.getEmail().equals(email)) {
+			return new User(email, client.getPassword(),
+					new ArrayList<>());
+		} else {
+			throw new UsernameNotFoundException("User not found with email: " + email);
+		}
+	}
+}

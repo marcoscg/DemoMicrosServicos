@@ -1,0 +1,5 @@
+package com.mardeveloper.pedido.message;
+
+public class ClientReceiveMessage {
+
+}

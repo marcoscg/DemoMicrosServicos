@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.dto;
+
+public class ClientOrderDto {
+
+}

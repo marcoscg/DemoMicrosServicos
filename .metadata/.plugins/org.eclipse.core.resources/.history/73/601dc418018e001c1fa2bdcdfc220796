@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.controller;
+
+public class ClientController {
+
+}

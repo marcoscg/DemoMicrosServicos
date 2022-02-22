@@ -1,0 +1,5 @@
+package com.mardeveloper.application.service;
+
+public class UserService {
+
+}

@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.entity;
+
+public class Client {
+
+}

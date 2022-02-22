@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.message;
+
+public class ClientMessage {
+
+}

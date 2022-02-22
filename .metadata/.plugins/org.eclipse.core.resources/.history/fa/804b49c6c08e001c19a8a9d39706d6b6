@@ -1,0 +1,51 @@
+package com.mardeveloper.cadastro.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mardeveloper.cadastro.entity.Client;
+import com.mardeveloper.cadastro.repository.ClientRepository;
+
+@Service
+public class ClientService {
+	
+	@Autowired
+	private ClientRepository clientRepository;
+	
+	public Client insertClient(Client client) {
+		return clientRepository.save(client);
+	}
+	
+	public Client updateClient (Client client) {
+		
+		Optional<Client> objClient = clientRepository.findById(client.getId());
+		
+		if (objClient.isPresent()) {
+			return clientRepository.save(client);			
+		} else {
+			return null; 			
+		}
+	}
+	
+	public boolean deleteCliente(Long id) {
+		
+		Optional<Client> objClient = clientRepository.findById(id);
+		
+		if (objClient.isPresent()) {
+			clientRepository.delete(objClient.get());
+			return true;
+		} else {
+			return false; 			
+		}
+	}
+	
+	public Optional<Client> findById(Long id) {
+		
+		Optional<Client> objClient = clientRepository.findById(id);
+		
+		return objClient;
+	}	
+
+}

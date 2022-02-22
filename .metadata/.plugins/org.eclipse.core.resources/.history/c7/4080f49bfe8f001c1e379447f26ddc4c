@@ -1,0 +1,5 @@
+package com.mardeveloper.cadastro.configuration;
+
+public class RabbitConfiguration {
+
+}

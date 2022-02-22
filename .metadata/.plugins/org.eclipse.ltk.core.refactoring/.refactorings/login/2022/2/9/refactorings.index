@@ -1,0 +1,12 @@
+1645488703348	Rename package 'com.mardeveloper.login.jwt'
+1645488733184	Delete element
+1645488865324	Rename package 'com.mardeveloper.config'
+1645488882770	Rename package 'com.mardeveloper.service'
+1645488911852	Delete element
+1645489168507	Rename type 'JwtUserDetailsService'
+1645489597206	Delete element
+1645492203308	Rename type 'ClientReceiveMessage'
+1645492234746	Rename type 'Client'
+1645492270924	Rename type 'ClientRepository'
+1645492296212	Rename type 'ClientService'
+1645494900847	Rename type 'LoginDto'
